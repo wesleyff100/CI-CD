@@ -1,0 +1,21 @@
+name: Continuous Delevery Deploy
+
+on:
+  push:
+    branches: [ main ]
+
+
+jobs:
+  Delivery_Deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Upload Build Artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts(ZIP)
+        path: |
+          **.py
+          requirements.txt
+            README.md
