@@ -32,10 +32,3 @@ def test_root_timestamp_format():
 def test_root_method_not_allowed():
     response = client.post("/")
     assert response.status_code == 405
-
-    # Check if timestamp is ISO format
-    from datetime import datetime
-    try:
-        datetime.fromisoformat(data["timestamp"])
-    except ValueError:
-        pytest.fail("Timestamp is not in ISO format")
